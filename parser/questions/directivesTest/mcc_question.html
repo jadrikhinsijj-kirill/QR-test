@@ -1,0 +1,12 @@
+<div class="panel panel-default">
+    <div class="panel-body">
+        <div>{{ngModel.index}}. {{ngModel.text}}</div>
+        <span class="bordered-inline">
+        <label class="checkbox-inline" style="display: flex;margin-left: 0px" ng-repeat="answer in ngModel.answer">
+            <input type="checkbox" name=q{{ngModel.index}} value={{answer.percent}}>
+        {{answer.answer}}
+      </label>
+    </span>
+        <span>{{ngModel.suffix}}</span>
+    </div>
+</div>

@@ -1,0 +1,23 @@
+<!-- Modal -->
+<div class="modal fade" id="modalAlertQR" tabindex="-1" role="dialog" aria-labelledby="modalAlertTitle" aria-hidden="false" data-backdrop="static" data-keyboard="false">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="modalAlertTitle">{{vm.modalAlertQR.title}}</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                {{vm.modalAlertQR.message}}
+                <p style="font-weight: bold;margin: 0">{{vm.modalAlertQR.ip}}</p>
+                {{vm.modalAlertQR.message2}}
+                <div id="qrcode" style="padding-left: 25%;padding-top: 10%"></div>
+            </div>
+            <div class="modal-footer">
+                <button ng-click="vm.modalAlertQR.doQR()" type="button" class="btn btn-primary">Ок</button>
+            </div>
+        </div>
+    </div>
+</div>
+

@@ -1,0 +1,41 @@
+<div class="container login-window">
+    <h1>{{vm.pageTitle}}</h1>
+
+    <form ng-submit="vm.login()">
+        <div class="form-group">
+            <label for="login">Имя пользователя</label>
+            <input ng-keyup="vm.validate()" ng-model="vm.fLogin" class="form-control" id="login" type="text">
+        </div>
+        <div class="form-group">
+            <label for="password">Пароль</label>
+            <input ng-keyup="vm.validate()" ng-model="vm.fPassword" class="form-control" id="password" type="password">
+        </div>
+
+        <div ng-show="vm.isInvalidForm && vm.fLogin.length && vm.fPassword.length" class="alert-danger">
+            Длина логина от 3 до 10 символов. Длина пароля не менее 5.
+        </div>
+
+        <div ng-show="vm.errorMsg.length" class="alert-danger">
+            {{vm.errorMsg}}
+        </div>
+
+        <button ng-disabled="vm.isInvalidForm" class="btn btn-primary" type="submit" id="login-button">Войти</button>
+        <a class="btn btn-info" id="register-button" href="/#/register">Регистрация</a>
+
+    </form>
+</div>
+
+<style>
+
+    .login-window {
+        width: 360px;
+        border: 1px solid grey;
+        padding: 25px;
+        border-radius: 10px;
+    }
+
+    .login-window .alert-danger {
+        margin-bottom: 10px;
+        padding: 6px;
+    }
+</style>

@@ -1,0 +1,39 @@
+<div class="container col-lg-7 col-md-7 col-sm-10 col-xs-12">
+    <h1 style="text-align:center">{{vm.pageTitle}}</h1>
+    <h4 style="text-align:center">Введите ваши данные:</h4>
+    <div class="form-group">
+        <label for="name">ФИО</label>
+        <input class="form-control" ng-keyup="vm.validate()" id="name" ng-model="vm.fName" type="text">
+    </div>
+    <div ng-show="vm.isInvalidForm && vm.fName.length" class="alert-danger">
+        Длина ФИО должно быть не менее 4 символа.
+    </div>
+    <div ng-show="vm.errorMsg.length" class="alert-danger">
+        {{vm.errorMsg}}
+    </div>
+    <div id="start">
+        <button class="btn btn-primary" ng-disabled="vm.isInvalidForm" type="button" ng-click="vm.start()">Начать тест
+        </button>
+    </div>
+    <div class="hide" id="timer" style="margin-bottom: 120px">
+        <h5 style="float: left">Осталось времени:&nbsp;</h5>
+        <h5 id="timer1" style="float: left" ng-model="vm.timer1"></h5>
+        <h5 style="float: left">:</h5>
+        <h5 id="timer2" style="float: left"></h5>
+    </div>
+    <form id="quiz" name="quiz">
+        <div ng-repeat="text in vm.tableModel">
+            <test ng-model="text"></test>
+        </div>
+    </form>
+    <div class="hide" id="end">
+        <button class="btn btn-primary hide" type="button" ng-click="vm.endTest()">Закончить тест</button>
+    </div>
+</div>
+
+<style>
+    body {
+        padding: 0px;
+        margin-top: 50px;
+    }
+</style>

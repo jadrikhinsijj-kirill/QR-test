@@ -1,0 +1,23 @@
+<div class="panel panel-default">
+
+    <div class="panel-body">
+        <p>{{ngModel.index}}. {{ngModel.text}}</p>
+        <table>
+            <tr ng-repeat="answer in ngModel.answer">
+                <td><select name=m{{ngModel.index}} class="browser-default custom-select" style="margin: 5px">
+                    <option ng-repeat="answer in ngModel.answer">
+                        {{answer.left}}
+                    </option>
+                </select>
+                </td>
+                <td>
+                    <select name=m{{ngModel.index}} class="browser-default custom-select" style="margin: 5px">
+                        <option ng-repeat="answer in ngModel.answer.slice().reverse()">
+                            {{answer.right}}
+                        </option>
+                    </select>
+                </td>
+            </tr>
+        </table>
+    </div>
+</div>

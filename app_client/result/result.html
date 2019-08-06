@@ -1,0 +1,40 @@
+<h1>{{vm.pageTitle}}</h1>
+<h3>{{vm.nameTest}}</h3>
+<a class="btn btn-info" href="/#/list">Назад</a>
+
+<table ng-show="vm.tableModel.length" class="table table-bordered table-striped table-hover">
+    <thead>
+    <tr>
+        <th>№</th>
+        <th>ФИО</th>
+        <th>Результат</th>
+        <th>Удаление</th>
+    </tr>
+    </thead>
+    <tbody>
+
+    <tr ng-repeat="item in vm.tableModel">
+        <td>
+            {{$index+1}}
+        </td>
+        <td>
+            {{item.fio}}
+        </td>
+
+        <td>
+            {{item.result}}
+        </td>
+
+        <td>
+            <button type="button" class="btn btn-info" ng-click="vm.delete(item.id_r)">Удалить</button>
+        </td>
+    </tr>
+
+    </tbody>
+</table>
+
+<div ng-hide="vm.tableModel.length" class="alert alert-info">Пока нет ни одного человека</div>
+<button type="button" class="btn btn-danger" ng-click="vm.print()">Печать</button>
+
+<ng-include src="'templates/modal-alert-delete.html'"></ng-include>
+

@@ -1,0 +1,72 @@
+<ng-include src="'templates/menu.html'"></ng-include>
+<div class="col-md-6">
+    <h1>{{vm.testadd}}</h1>
+    <div class="form-group">
+        <label for="subject">Название теста</label>
+        <input class="form-control" ng-keyup="vm.validate()" ng-model="vm.fName" id="subject" type="text">
+
+        <label for="time">Время выполнения(минуты)</label>
+        <input class="form-control" id="time" type="number" min="1" max="100" value="1" style="width: 100px">
+    </div>
+
+    <div ng-show="vm.isInvalidForm && vm.fName.length" class="alert-danger">
+        Название теста должно быть не менее 5 символов.
+    </div>
+    <div class="example-2">
+        <div class="form-group">
+            <input type="file" accept=".txt,.gift" name="file" id="fileInput" class="input-file"
+                   onchange="processFiles(this.files)" ng-trim="false">
+            <label for="fileInput" class="btn btn-tertiary js-labelFile">
+                <i class="icon fa fa-check"></i>
+                <span class="js-fileName">Загрузить файл</span>
+            </label>
+        </div>
+    </div>
+
+
+    <div class="row">
+        <div class="col-md-12">
+          <textarea class="form-control" rows="14"
+                    placeholder="Выберите файл или напишите текст сюда"
+                    ng-trim="false"
+                    ng-model="state.input"
+                    ng-model-options="{ debounce: 200 }">
+          </textarea>
+
+        </div>
+    </div>
+
+    <h2 ng-if="state.error">
+        Error
+    </h2>
+    <div class="row" ng-if="state.error">
+        <div class="col-md-12">
+            <div class="panel panel-danger">
+                <div class="panel-heading">
+                    {{state.error}}
+                </div>
+                <div class="panel-body">
+                    <pre>{{state.errorLine}}</pre>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <h2 ng-if="state.questions.length">
+        Предпросмотр
+    </h2>
+    <div class="row" ng-repeat="question in state.questions">
+        <div class="col-md-12">
+            <question ng-model="question"></question>
+        </div>
+    </div>
+    <div>
+        <button ng-disabled="vm.isInvalidForm" class="btn btn-primary" type="button" id="add-test-button"
+                ng-click="vm.create()">Создать тест
+        </button>
+    </div>
+
+</div>
+
+
+<ng-include src="'templates/modal-alert-create.html'"></ng-include>

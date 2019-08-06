@@ -1,0 +1,17 @@
+<div class="panel panel-default">
+    <div class="panel-body">
+        <span>{{ngModel.index}}. {{ngModel.text}}</span>
+        <span>{{ngModel.suffix}}</span>
+        <div>
+            <label class="radio-inline">
+                <input type="radio" name=q{{ngModel.index}} ng-value="1">
+                Да
+            </label>
+            <label class="radio-inline">
+                <input type="radio" name=q{{ngModel.index}} ng-value="0">
+                Нет
+            </label>
+        </div>
+    </div>
+
+</div>

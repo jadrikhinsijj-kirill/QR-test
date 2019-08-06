@@ -1,0 +1,35 @@
+doctype html
+html(ng-app="myApp")
+  head
+    title= title
+    meta(name='viewport', content='with=device-with, initial-scale=1.0')
+    link(rel='stylesheet', href='/stylesheets/style.css')
+    link(rel='stylesheet', href='/bootstrap/css/bootstrap.css')
+    link(rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css")
+
+  body
+    block content
+    div(ng-view)
+    script(src='/angular/angular.min.js')
+    script(src='/angular/angular-route.min.js')
+    script(src='/app.js')
+    script(src='/add/addController.js')
+    script(src='/result/resultController.js')
+    script(src='/list/listController.js')
+    script(src='/index/indexController.js')
+    script(src='/javascripts/jquery-3.3.1.min.js')
+    script(src='/bootstrap/js/bootstrap.min.js')
+    script(src='https://d3js.org/d3.v3.min.js')
+    script(src='/login/loginController.js')
+    script(src='/logout/logoutController.js')
+    script(src='/register/registerController.js')
+    script(src='/endtest/endtestController.js')
+    script(src='/print/printController.js')
+    script(src='/javascripts/jquery.qrcode.js')
+    script(src='/javascripts/qrcode.js')
+    script(src='/common/services.js')
+    script(src='/common/directives.js')
+    script(src='/common/directivesTest.js')
+    script(src="/angular/angular-bootstrap/ui-bootstrap-tpls.min.js")
+    script(src="/parser/pegjs/peg-0.10.0.min.js")
+

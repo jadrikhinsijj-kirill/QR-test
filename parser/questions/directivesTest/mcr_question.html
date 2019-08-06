@@ -1,0 +1,27 @@
+<div class="panel panel-default">
+    <div class="panel-body" ng-if="ngModel.suffix">
+
+        <span>{{ngModel.index}}. {{ngModel.text}}</span>
+        <select id={{ngModel.index}} class="browser-default custom-select" style="margin: 5px">
+            <option disabled selected>Выберите правильный ответ</option>
+            <option ng-repeat="answer in ngModel.answer">
+                {{answer.answer}}
+            </option>
+        </select>
+        <span>{{ngModel.suffix}}</span>
+    </div>
+</div>
+
+
+<div class="panel panel-default" ng-if="!ngModel.suffix">
+    <div class="panel-body">
+        <div>{{ngModel.index}}. {{ngModel.text}}</div>
+        <span class="bordered-inline">
+        <label class="radio-inline" style="display: flex;margin-left: 0px" ng-repeat="answer in ngModel.answer">
+            <input type="radio" name=q{{ngModel.index}} ng-value={{answer.correct}}>
+        {{answer.answer}}
+      </label>
+    </span>
+        <div>{{ngModel.suffix}}</div>
+    </div>
+</div>

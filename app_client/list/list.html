@@ -1,0 +1,52 @@
+<ng-include src="'templates/menu.html'"></ng-include>
+<h1>{{vm.pageTitle}}</h1>
+
+<table ng-show="vm.tableModel.length" class="table table-bordered table-striped table-hover">
+    <thead>
+    <tr>
+        <th>№</th>
+        <th>Название теста</th>
+        <th>Время выполнения</th>
+        <th>Начать</th>
+        <th>Копирование</th>
+        <th>Просмотр</th>
+        <th>Удаление</th>
+    </tr>
+    </thead>
+    <tbody>
+
+    <tr ng-repeat="item in vm.tableModel">
+        <td>
+            {{$index+1}}
+        </td>
+        <td>
+            {{item.name}}
+        </td>
+        <td>
+            {{item.time}}
+        </td>
+        <td>
+            <button type="button" class="btn btn-info" ng-click="vm.start(item.id_t)">Начать</button>
+        </td>
+        <td>
+            <button type="button" class="btn btn-info" ng-click="vm.copyTest(item.id_t)">Копировать</button>
+        </td>
+        <td>
+            <a class="btn btn-info" href="/#/result/{{item.id_t}}">Просмотр</a>
+        </td>
+        <td>
+            <button type="button" class="btn btn-danger" ng-click="vm.delete(item.name,item.id_t)">Удалить</button>
+        </td>
+    </tr>
+
+    </tbody>
+</table>
+
+<div ng-hide="vm.tableModel.length" class="alert alert-info">Пока нет ни одного теста</div>
+<button type="button" class="btn btn-success" ng-click="vm.buttonQR()">Посмотреть ссылку</button>
+
+
+<ng-include src="'templates/modal-alert-delete.html'"></ng-include>
+<ng-include src="'templates/modal-alert-copy.html'"></ng-include>
+<ng-include src="'templates/modal-alert-qr.html'"></ng-include>
+
